@@ -3,8 +3,8 @@ Spree::Admin::BaseController.class_eval do
   helper_method :locale_suffix
 
   def locale_suffix(locale)
-    locale ||= I18n.locale
-    I18n.locale == locale.to_sym ? "".to_sym : "_"+ locale
+    locale ||= I18n.default_locale.to_s
+    "_"+locale
   end
 
   private

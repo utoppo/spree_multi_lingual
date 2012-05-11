@@ -32,7 +32,7 @@ module TranslatesWithAccessors
       accessors = options.delete(:globalize_accessors)
       super
 
-      globalize_accessors locales: SpreeMultiLingual.languages, attributes: params.to_a if accessors
+      globalize_accessors({ "locales" => SpreeMultiLingual.languages, "attributes" => params.to_a}) if accessors
     end
   end
 end

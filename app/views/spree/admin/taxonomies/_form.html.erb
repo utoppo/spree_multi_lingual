@@ -1,5 +1,9 @@
 <div data-hook="admin_inside_taxonomy_form">
-  <% method_name = "name#{locale_suffix(params[:lang])}"%>
+  <% if params[:lang]==nil %>
+  <% method_name = "name_en"%>
+  <% else %>
+  <% method_name = "name#{locale_suffix(params[:lang])}"%>  
+  <% end %>
   <%= f.field_container method_name.to_sym do %>
     <%= f.label method_name, t(method_name) %> <span class="required">*</span><br />
     <%= error_message_on :taxonomy, :name, :class => 'fullwidth title' %>
