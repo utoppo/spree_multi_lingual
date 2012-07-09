@@ -5,10 +5,10 @@
     <%= text_field :taxon, :name %>
   <% end %>
 
-  <%= f.field_container :permalink do %>
-    <%= f.label :permalink, t(:permalink) %><span class="required">*</span><br />
-    <%= @taxon.permalink.split("/")[0...-1].join("/") + "/" %><%= text_field_tag "taxon[permalink]", @permalink_part %>
-  <% end %>
+  <%= f.field_container :permalink_part do %>
+    <%= f.label :permalink_part, t(:permalink) %><span class="required">*</span><br />
+    <%= @taxon.permalink.split("/")[0...-1].join("/") + "/" %><%= text_field_tag :permalink_part, @permalink_part %>
+  <% end %>
 
   <%= f.field_container :icon do %>
     <%= f.label :icon, t(:icon) %><br />
